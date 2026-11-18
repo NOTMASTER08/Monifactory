@@ -42,7 +42,7 @@ ServerEvents.recipes(event => {
 
         // EV Recipes
         event.recipes.gtceu.virtual_particle_synthesis("particle_soup")
-            .itemInputs("8x kubejs:quantum_flux", "2x gtceu:uranium_235_dust")
+            .itemInputs("8x monilabs:quantum_flux", "2x gtceu:uranium_235_dust")
             .inputFluids("gtceu:mana 250", "gtceu:radon 1000")
             .duration(40)
             .outputFluids("kubejs:particle_soup 1000")
@@ -51,7 +51,7 @@ ServerEvents.recipes(event => {
 
         event.remove({ output: "gtceu:quantum_eye" })
         event.recipes.gtceu.virtual_particle_synthesis("quantum_eye")
-            .itemInputs("minecraft:ender_eye", "kubejs:quantum_flux")
+            .itemInputs("minecraft:ender_eye", "monilabs:quantum_flux")
             .inputFluids("kubejs:particle_soup 400")
             .circuit(1)
             .duration(200)
@@ -63,10 +63,10 @@ ServerEvents.recipes(event => {
             .itemInputs("redstone_arsenal:flux_gem")
             .inputFluids("gtceu:mana 200", "kubejs:particle_soup 200")
             .itemOutputs(
-                "8x kubejs:quantum_flux",
-                "4x kubejs:quantum_flux",
-                "2x kubejs:quantum_flux",
-                "kubejs:quantum_flux"
+                "8x monilabs:quantum_flux",
+                "4x monilabs:quantum_flux",
+                "2x monilabs:quantum_flux",
+                "monilabs:quantum_flux"
             )
             .duration(80)
             .EUt(GTValues.VA[GTValues.EV])
@@ -95,10 +95,10 @@ ServerEvents.recipes(event => {
             .inputFluids("kubejs:bosonic_matter 400", "kubejs:hadronic_matter 400", "gtceu:dragon_breath 500")
             .circuit(1)
             .itemOutputs(
-                "64x kubejs:quantum_flux",
-                "32x kubejs:quantum_flux",
-                "16x kubejs:quantum_flux",
-                "8x kubejs:quantum_flux"
+                "64x monilabs:quantum_flux",
+                "32x monilabs:quantum_flux",
+                "16x monilabs:quantum_flux",
+                "8x monilabs:quantum_flux"
             )
             .duration(80)
             .EUt(GTValues.VA[GTValues.IV])
@@ -117,8 +117,8 @@ ServerEvents.recipes(event => {
 
         event.recipes.gtceu.virtual_particle_synthesis("more_particle_soup_enriched_naquadah")
             .itemInputs(
-                "64x kubejs:quantum_flux",
-                "64x kubejs:quantum_flux",
+                "64x monilabs:quantum_flux",
+                "64x monilabs:quantum_flux",
                 "16x gtceu:quantum_eye",
                 "16x gtceu:small_enriched_naquadah_dust"
             )
@@ -130,8 +130,8 @@ ServerEvents.recipes(event => {
 
         event.recipes.gtceu.virtual_particle_synthesis("more_particle_soup_naquadria")
             .itemInputs(
-                "64x kubejs:quantum_flux",
-                "64x kubejs:quantum_flux",
+                "64x monilabs:quantum_flux",
+                "64x monilabs:quantum_flux",
                 "16x gtceu:quantum_eye",
                 "16x gtceu:small_naquadria_dust"
             )
@@ -142,7 +142,7 @@ ServerEvents.recipes(event => {
             .quantumRule(QuantumRule.QUANTUM_FIELDS, IO.IN)
 
         event.recipes.gtceu.virtual_particle_synthesis("degenerate_recycling_luv")
-            .itemInputs("4x kubejs:quantum_flux")
+            .itemInputs("4x monilabs:quantum_flux")
             .inputFluids("kubejs:degenerate_matter 1000")
             .duration(40)
             .outputFluids("kubejs:particle_soup 250", "kubejs:particle_soup 250", "kubejs:bosonic_matter 250", "kubejs:hadronic_matter 250")
@@ -236,8 +236,8 @@ ServerEvents.recipes(event => {
                 "64x gtceu:quantum_star",
                 "64x gtceu:quantum_eye",
                 "64x gtceu:quantum_eye",
-                "64x kubejs:quantum_flux",
-                "64x kubejs:quantum_flux"
+                "64x monilabs:quantum_flux",
+                "64x monilabs:quantum_flux"
             )
             .inputFluids("gtceu:mana 2000", "gtceu:iron_plasma 2592")
             .duration(40)

@@ -6,10 +6,10 @@ ServerEvents.recipes(event => {
 
     // Generate thermal thruster recipes
     const thermalThrusters = [
-        ["leadstone", "lead", "lead", "steamdynamo:steam_dynamo", true],
-        ["hardened", "invar", "invar", "thermal:dynamo_magmatic", true],
-        ["reinforced", "aluminium", "electrum", "thermal:dynamo_compression", true],
-        ["resonant", "enderium", "enderium", "thermal:dynamo_numismatic", false]
+        ["leadstone", "lead", "lead", "gtceu:lv_steam_turbine", true],
+        ["hardened", "invar", "invar", "gtceu:lv_gas_turbine", true],
+        ["reinforced", "aluminium", "electrum", "gtceu:mv_combustion", true],
+        ["resonant", "enderium", "enderium", "monilabs:hv_lapotronic", false]
     ]
 
     thermalThrusters.forEach(([newTier, plate1, plate2, dynamo, doWithVPS]) => {
@@ -31,13 +31,13 @@ ServerEvents.recipes(event => {
 
     // Generate EnderIO thruster recipes
     const eioThrusters = [
-        ["conductive_iron", "conductive_alloy", "1", "kubejs:resonating_crystal", "gtceu:red_alloy_plate", true],
-        ["electrical_steel", "electrical_steel", "1", "enderio:pulsating_crystal", Item.of("kubejs:conductive_iron_thruster").weakNBT(), true],
-        ["energetic", "energetic_alloy", "2", "enderio:vibrant_crystal", Item.of("kubejs:electrical_steel_thruster").weakNBT(), true],
-        ["vibrant", "vibrant_alloy", "3", "enderio:prescient_crystal", Item.of("kubejs:energetic_thruster").weakNBT(), false]
+        ["conductive_iron", "conductive_alloy", "red_alloy", "kubejs:resonating_crystal", "gtceu:red_alloy_plate", true],
+        ["electrical_steel", "electrical_steel", "conductive_alloy", "enderio:pulsating_crystal", Item.of("kubejs:conductive_iron_thruster").weakNBT(), true],
+        ["energetic", "energetic_alloy", "energetic_alloy", "enderio:vibrant_crystal", Item.of("kubejs:electrical_steel_thruster").weakNBT(), true],
+        ["vibrant", "vibrant_alloy", "vibrant_alloy", "enderio:prescient_crystal", Item.of("kubejs:energetic_thruster").weakNBT(), false]
     ]
 
-    eioThrusters.forEach(([newTier, plate, card, crystal, lastTier, doWithVPS]) => {
+    eioThrusters.forEach(([newTier, plate, wire, crystal, lastTier, doWithVPS]) => {
         if (doWithVPS || !doParticleSynthesis) {
             event.recipes.gtceu.shaped(Item.of(`kubejs:${newTier}_thruster`), [
                 "PCP",
@@ -45,7 +45,7 @@ ServerEvents.recipes(event => {
                 "BTB"
             ], {
                 P: `#forge:plates/${plate}`,
-                C: `laserio:energy_overclocker_card_tier_${card}`,
+                C: `gtceu:${wire}_octal_wire`,
                 R: crystal,
                 T: lastTier,
                 B: "gtceu:red_alloy_plate"
@@ -62,14 +62,14 @@ ServerEvents.recipes(event => {
 
         // Silly particle juice :)
         event.recipes.gtceu.assembler("kubejs:ironjetpacks/thrusters/resonant")
-            .itemInputs("4x gtceu:enderium_plate", "3x gtceu:red_alloy_plate", "thermal:dynamo_numismatic", "thermal:rf_coil")
+            .itemInputs("4x gtceu:enderium_plate", "3x gtceu:red_alloy_plate", "monilabs:hv_lapotronic", "thermal:rf_coil")
             .inputFluids("kubejs:bosonic_matter 500") // Gravity In A Bottle(TM)
             .duration(100)
             .itemOutputs("kubejs:resonant_thruster")
             .EUt(GTValues.VA[GTValues.EV])
 
         event.recipes.gtceu.assembler("kubejs:ironjetpacks/thrusters/vibrant")
-            .itemInputs("4x gtceu:vibrant_alloy_plate", "2x gtceu:red_alloy_plate", "enderio:prescient_crystal", "laserio:energy_overclocker_card_tier_3", "kubejs:energetic_thruster")
+            .itemInputs("4x gtceu:vibrant_alloy_plate", "2x gtceu:red_alloy_plate", "enderio:prescient_crystal", "gtceu:vibrant_alloy_octal_wire", "kubejs:energetic_thruster")
             .inputFluids("kubejs:bosonic_matter 500") // Gravity In A Bottle(TM)
             .duration(100)
             .itemOutputs("kubejs:vibrant_thruster")
@@ -79,16 +79,16 @@ ServerEvents.recipes(event => {
 
     } else {
         // No silly particle juice :(
-        // Dark Soularium
+    // Dark Soularium
         event.recipes.gtceu.shaped(Item.of("kubejs:dark_soularium_thruster"), [
             "ICI",
             "IFI",
             "TTT"
         ], {
             I: "gtceu:double_dark_soularium_plate",
-            C: "laserio:energy_overclocker_card_tier_8",
+            C: "gtceu:cryolobus_frame",
             F: "enderio:weather_crystal",
-            T: "kubejs:vibrant_thruster"
+            T: Item.of("kubejs:vibrant_thruster").weakNBT()
         }).id("kubejs:ironjetpacks/thrusters/dark_soularium")
             .addMaterialInfo();
 

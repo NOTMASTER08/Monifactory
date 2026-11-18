@@ -6,7 +6,7 @@
 
 **Q. How "finished" is Monifactory?**
 
-The main path of progression is fully playable - multiple groups have obtained the Creative Chest in Normal Mode.
+The main path of progression is fully playable - multiple groups have obtained the Creative Chest in all modes: Normal mode, Hard Mode, and Expert Mode.
 
 **Q. Is Monifactory still being updated?**
 
@@ -93,6 +93,7 @@ Instead:
     `emi.json`
     `options.txt`
     `emi.css` (located in `\config\`)
+    `prospection_cache` (located in `\gtceu\`)
 3. Replace the contents of your world's `serverconfig` folder with the contents of the `defaultconfigs` folder in the pack's root directory.
 4. Adjust the pack mode of the new instance, if needed (Instructions above)
 

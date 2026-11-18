@@ -1,3 +1,4 @@
-# Moni 0.13.6
-*NEW MOD: Spatial Tools Compatible! A copy-paste tool that supports GT machines and AE2 multiparts.
-*Also includes minor QoL and fixes.
+# Moni 0.14.0  is here
+*New Lapotronic Generator, complete rebalance of power generation, and more!  
+*Also comes with many fixes and performance enhancements.
+

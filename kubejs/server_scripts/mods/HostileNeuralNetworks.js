@@ -23,7 +23,7 @@ ServerEvents.recipes(event => {
             .itemOutputs("minecraft:skeleton_skull")
             .circuit(13)
             .duration(20)
-            .EUt(16)
+            .EUt(GTValues.VHA[GTValues.LV])
 
         event.shaped("minecraft:wither_skeleton_skull", [
             "AA ",
@@ -58,7 +58,7 @@ ServerEvents.recipes(event => {
             .itemInputs("gtceu:lv_machine_hull", "8x #forge:plates/dark_steel")
             .itemOutputs("monilabs:dark_steel_casing")
             .duration(50)
-            .EUt(16)
+            .EUt(GTValues.VHA[GTValues.LV])
             .circuit(6)
             .addMaterialInfo(true)
 
@@ -94,7 +94,7 @@ ServerEvents.recipes(event => {
             .itemInputs(["kubejs:pulsating_dust", "minecraft:clay"])
             .itemOutputs("4x hostilenetworks:prediction_matrix")
             .duration(240)
-            .EUt(7)
+            .EUt(GTValues.VA[GTValues.ULV])
 
         event.recipes.gtceu.electrolyzer("gt_quartz")
             .itemInputs("4x minecraft:glass")
@@ -106,19 +106,19 @@ ServerEvents.recipes(event => {
             .itemInputs(["4x minecraft:string", "gtceu:coal_dust"])
             .itemOutputs("gtceu:carbon_fiber_mesh")
             .duration(100)
-            .EUt(16)
+            .EUt(GTValues.VHA[GTValues.LV])
 
         event.recipes.gtceu.alloy_smelter("carbon_fiber_mesh_carbon")
             .itemInputs(["4x minecraft:string", "gtceu:carbon_dust"])
             .itemOutputs("gtceu:carbon_fiber_mesh")
             .duration(100)
-            .EUt(16)
+            .EUt(GTValues.VHA[GTValues.LV])
 
         event.recipes.gtceu.alloy_smelter("pulsating_mesh")
             .itemInputs(["gtceu:carbon_fiber_mesh", "4x kubejs:pulsating_dust"])
             .itemOutputs("kubejs:pulsating_mesh")
             .duration(200)
-            .EUt(16)
+            .EUt(GTValues.VHA[GTValues.LV])
 
         // PPM (Autoclave)
         event.recipes.gtceu.autoclave("pulsating_prediction_matrix_autoclave")
@@ -147,11 +147,11 @@ ServerEvents.recipes(event => {
 
         event.recipes.gtceu.extractor("extract_quantum_flux")
             .itemInputs("kubejs:impossible_realm_data")
-            .itemOutputs("kubejs:quantum_flux")
+            .itemOutputs("monilabs:quantum_flux")
             .duration(100)
             .EUt(3000)
 
-        event.shaped("kubejs:quantum_flux", [
+        event.shaped("monilabs:quantum_flux", [
             " B ",
             "BAB",
             " B "
@@ -181,13 +181,13 @@ ServerEvents.recipes(event => {
                 .inputFluids(Fluid.of("enderio:xp_juice", 140))
                 .itemOutputs(`1x kubejs:${item[0]}_data`)
                 .duration(20)
-                .EUt(60)
+                .EUt(GTValues.VHA[GTValues.MV])
             event.recipes.gtceu.canner(`advanced_canning_${item[0]}_data`)
                 .itemInputs([`3x gtceu:small_${item[2]}_dust`, `8x hostilenetworks:${item[1]}_prediction`])
                 .inputFluids(Fluid.of("enderio:xp_juice", 500))
                 .itemOutputs(`2x kubejs:${item[0]}_data`)
                 .duration(20)
-                .EUt(960)
+                .EUt(GTValues.VHA[GTValues.EV])
         })
 
 

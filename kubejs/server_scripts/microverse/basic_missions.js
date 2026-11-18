@@ -9,7 +9,7 @@
  */
 ServerEvents.recipes(event => {
     event.recipes.gtceu.microverse("normal_microverse_projection")
-        .itemInputs("kubejs:universe_creation_data", "64x kubejs:quantum_flux", "64x kubejs:quantum_flux")
+        .itemInputs("kubejs:universe_creation_data", "64x monilabs:quantum_flux", "64x monilabs:quantum_flux")
         .updateMicroverse(1) // Normal
         .addData("projector_tier", 1)
         .EUt(GTValues.VHA[GTValues.HV])
@@ -131,7 +131,7 @@ ServerEvents.recipes(event => {
             .requiredMicroverse(1) // Normal
             .damageRate((doComplexMicroverses ? 1 : 0)) // 2% / 0%
             .itemOutputs(
-                "32x gtceu:raw_molybdenite",
+                "16x gtceu:raw_molybdenite",
                 "32x ad_astra:moon_sand",
                 "24x gtceu:raw_dilithium",
                 "32x gtceu:raw_fluorite",
@@ -164,9 +164,9 @@ ServerEvents.recipes(event => {
             .damageRate((doComplexMicroverses ? 1 : 0)) // 2.4% / 0%
             .itemOutputs(
                 "64x gtceu:raw_scheelite",
-                "64x gtceu:raw_scheelite",
-                "64x gtceu:raw_tungstate",
-                "64x gtceu:raw_tungstate",
+                "32x gtceu:raw_scheelite",
+                "64x gtceu:raw_wolframite",
+                "32x gtceu:raw_wolframite",
             )
     })
 
@@ -322,6 +322,7 @@ ServerEvents.recipes(event => {
                 "64x gtceu:raw_emerald",
                 "64x gtceu:raw_emerald",
                 "64x gtceu:raw_sapphire",
+                "64x gtceu:raw_amethyst",
             )
     })
 
@@ -338,6 +339,19 @@ ServerEvents.recipes(event => {
                 "32x gtceu:raw_fluorite",
                 "64x gtceu:raw_topaz",
                 "32x gtceu:raw_blue_topaz",
+            )
+    })
+
+    microverse_mission(event, 3, 1).forEach(builder => {
+        builder
+            .inputFluids("gtceu:rocket_fuel 5000")
+            .itemInputs("kubejs:basic_drilling_kit")
+            .itemInputs("gtceu:aluminium_drill_head")
+            .requiredMicroverse(1) // Normal
+            .itemOutputs(
+                "32x minecraft:glowstone",
+                "64x minecraft:raw_gold",
+                "48x gtceu:raw_coal",
             )
     })
 
